@@ -5,7 +5,6 @@ module Workers
   module AMQP
     class DepositCoinAddress < Base
       def process(payload)
-        binding.pry
         payload.symbolize_keys!
 
         member = Member.find_by_id(payload[:member_id])
@@ -20,7 +19,7 @@ module Workers
           return
         end
 
-        wallet_service = WalletService.new(wallet, deposit.currency_id)
+        wallet_service = WalletService.new(wallet)
 
         pa = PaymentAddress.find_by(member_id: member.id, wallet_id: wallet.id)
         pa.with_lock do
