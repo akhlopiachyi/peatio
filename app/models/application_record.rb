@@ -22,5 +22,5 @@ class ApplicationRecord < ActiveRecord::Base
 
   # == Instance Methods =====================================================
 
-  self.abstract_class = true
+
 end

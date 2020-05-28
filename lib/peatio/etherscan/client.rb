@@ -2,8 +2,6 @@
 
 module Etherscan
   class Client
-    ETHERSCAN_API_KEY = "S9AKTMUAYY63TSKXFIS3Q2PVU54WJPYDFY"
-
     API_SUCCESS_STATUS = "1"
 
     NETWORKS_URLS = {

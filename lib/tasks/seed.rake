@@ -95,10 +95,12 @@ namespace :seed do
     end
   end
 
-  desc 'Fetch information about currencies from Coingecko'
-  task prepare: :environment do
-    YAML.load_file(Rails.root.join('config/seed-v2/datasource.yml')).fetch("datasources").each do |datasource|
-      PrefillService.new(datasource.deep_symbolize_keys).perform
+  namespace :prefetch do
+    desc 'Fetch information about currencies from Coingecko'
+    task currencies:  :environment do
+      YAML.load_file(Rails.root.join('config/seed-v2/datasource.yml')).fetch("datasources").each do |datasource|
+        "Seed::#{datasource["adapter"].camelize}".constantize.new(datasource.deep_symbolize_keys).prefetch_currencies
+      end
     end
   end
 end

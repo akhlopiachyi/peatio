@@ -6,6 +6,10 @@ datasources:
       market_cap_rank: 20               # Minimum market cup rank required for asset to be included in generated seed file.
       asset_platform_ids: ["ethereum"]  # Coingecko asset_platform_ids for assets filtering. E.g only ones with ethereum will be include.
 
+    etherscan:
+      api_key: "S9AKTMUAYY63TSKXFIS3Q2PVU54WJPYDFY"
+      network: "mainnet"
+
     blockchain_mapping:
       ethereum: eth-mainnet
     wallets_mapping:
@@ -16,7 +20,7 @@ datasources:
       cold:
         ethereum: 3
 
-    base_currency: usd
+    base_currency: pidar
     tarrifs:
       # Defined in base currency
       deposit_fee:            1
